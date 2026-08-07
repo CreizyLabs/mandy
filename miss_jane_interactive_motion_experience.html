@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MISS JANE | Elevate Every Detail of Your Life</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed-variant": "#464746",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "on-secondary-fixed": "#1a1c1b",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "on-tertiary-container": "#a08000",
+                        "surface-container": "#efeded",
+                        "surface-container-high": "#e9e8e7",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-bright": "#fbf9f9",
+                        "surface-variant": "#e4e2e2",
+                        "on-secondary-container": "#626361",
+                        "tertiary-container": "#241a00",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-primary-fixed": "#1c1b1b",
+                        "secondary": "#5e5e5d",
+                        "on-primary-container": "#858383",
+                        "on-background": "#1b1c1c",
+                        "outline-variant": "#c4c7c7",
+                        "surface-dim": "#dbdad9",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#5f5e5e",
+                        "on-surface": "#1b1c1c",
+                        "primary-fixed-dim": "#c8c6c5",
+                        "on-surface-variant": "#444748",
+                        "tertiary-fixed": "#ffe088",
+                        "on-error": "#ffffff",
+                        "background": "#fbf9f9",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f5f3f3",
+                        "secondary-fixed-dim": "#c7c6c5",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "outline": "#747878",
+                        "inverse-primary": "#c8c6c5",
+                        "secondary-fixed": "#e3e2e0",
+                        "on-primary-fixed-variant": "#474646",
+                        "primary-fixed": "#e5e2e1",
+                        "inverse-surface": "#303031",
+                        "on-secondary": "#ffffff",
+                        "secondary-container": "#e0dfde",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fbf9f9",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e4e2e2",
+                        "error-container": "#ffdad6",
+                        "primary-container": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "margin-desktop": "64px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Montserrat"],
+                        "body-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Montserrat"],
+                        "headline-md": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "84px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .editorial-image-ratio { aspect-ratio: 3/4; }
+        .hero-image-ratio { aspect-ratio: 16/9; }
+        .signature-shadow:hover { box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05); }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .interactive-card {
+            transition: transform 500ms ease-in-out, box-shadow 500ms ease-in-out;
+        }
+        
+        .interactive-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px -5px rgba(46, 21, 51, 0.3);
+        }
+
+        .hero-glow-container {
+            --mouse-x: 50%;
+            --mouse-y: 50%;
+            position: relative;
+        }
+
+        .hero-glow-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                800px circle at var(--mouse-x) var(--mouse-y),
+                rgba(255, 255, 255, 0.1),
+                transparent 40%
+            );
+            pointer-events: none;
+            z-index: 20;
+            transition: background 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased selection:bg-primary selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/80 backdrop-blur-xl dark:bg-surface-container-lowest/80 border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<!-- Left Navigation (Hidden on mobile) -->
+<nav class="hidden lg:flex gap-gutter items-center">
+<a class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="#">Beauty</a>
+<a class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="#">Fitness &amp; Gym</a>
+<a class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="#">Home Sanctuary</a>
+<a class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="#">Lifestyle Experiences</a>
+<a class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-300" href="#">Editorial</a>
+</nav>
+<!-- Brand Logo -->
+<div class="flex-1 lg:flex-none text-center">
+<a class="font-display-lg text-headline-md tracking-widest text-primary dark:text-on-primary-fixed" href="#">MISS JANE</a>
+</div>
+<!-- Trailing Icons -->
+<div class="flex gap-4 items-center justify-end text-primary dark:text-on-primary-fixed">
+<button aria-label="Search" class="hover:text-primary transition-colors duration-300 opacity-70 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+<button aria-label="Favorite" class="hover:text-primary transition-colors duration-300 opacity-70 hover:opacity-100 hidden md:block">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+<button aria-label="Shopping Bag" class="hover:text-primary transition-colors duration-300 opacity-70 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button aria-label="Profile" class="hover:text-primary transition-colors duration-300 opacity-70 hover:opacity-100 hidden md:block">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+<button aria-label="Menu" class="lg:hidden hover:text-primary transition-colors duration-300 opacity-70 hover:opacity-100">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main>
+<!-- Hero Section -->
+<section class="hero-glow-container relative w-full h-[819px] min-h-[600px] bg-surface-container-high flex items-center justify-center overflow-hidden" id="hero-section">
+<div class="absolute inset-0 w-full h-full">
+<img alt="Hero Background" class="w-full h-full object-cover object-center opacity-90" data-alt="A high-end editorial fashion photography carousel for a luxury brand 'Miss Jane'. Three distinct scenes featuring the same elegant woman: 1. Applying luxury skincare in a sun-drenched marble bathroom. 2. In sleek designer activewear in a high-tech minimalist home gym. 3. Working at a sophisticated, modern home office desk with premium stationery and lighting. The overall mood is aspirational and bold, with deep purple accents and rich lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuvOArD-EdkrEZZD1vQ-TG9CM__5lQ2TfoDHQ3XyPeMvu1A03ISX1VchZSHpjGwUPhtP3sktHZVzW05rkoj-k5NNBAZ-AYgodmkNOaiWuWXILjdbcr1tqX71NNdr-lxO6WriKoWpPm9VmXWZxdMxHsIxWgxMQqOO7cIyqYRus5A5Ftlj3EyDQUKiFcvR6U_jKata4qxeVvpw_WiXK5s9AjbLudzj0r_fg3R_xYtO_mgJtgb9bSIzj_dg"/>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#2e1533]/40 to-transparent"></div>
+<div class="animate-float relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl bg-[#2e1533]/85 backdrop-blur-md p-8 md:p-12 border border-white/10 rounded-sm shadow-2xl">
+<h1 class="font-display-lg text-headline-lg-mobile md:text-display-lg text-white mb-6">Elevate Every Detail of Your Life.</h1>
+<p class="font-body-lg text-body-lg text-white/90 mb-10 max-w-2xl mx-auto">Curated beauty, performance gym essentials, and luxury home design for the modern sanctuary.</p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center">
+<a class="inline-flex items-center justify-center bg-white text-[#2e1533] font-label-sm text-label-sm px-8 py-4 uppercase tracking-widest hover:bg-white/90 transition-colors" href="#">Explore Collections</a>
+<a class="inline-flex items-center justify-center border border-white text-white font-label-sm text-label-sm px-8 py-4 uppercase tracking-widest hover:bg-white/10 transition-colors" href="#">Take the Lifestyle Quiz</a>
+</div>
+</div>
+</section><section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface-container-lowest">
+<div class="mb-16 text-center">
+<h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary mb-4">The Essentials</h2>
+<div class="w-12 h-[1px] bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Product 1: Beauty -->
+<div class="group flex flex-col interactive-card animate-float" style="animation-delay: 0s;">
+<div class="relative overflow-hidden bg-surface-container-low mb-6 aspect-[3/4]">
+<img alt="Luminous Botanical Face Oil" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJrrZxzjC2tkNtd_6_RQi-EHMvaO7ne42nDMqM2Vl62XP98B0HehJVBczqdj-kIQKymMjOZqdFg9PP5EH0HJFUBGgz-sCEOa0Yuq5qLXktVWEJ7_J9tv6u0CKEoTH6FfMIwyE7PQxYnRq5Q-MnkN9eJHPAVpeIXWYOQTs96fWrj_EG-gNHlCWXet1IUHy_p0Vl9OxfAdIzwoLjsf6zAd47GnQRzD-v5bAdjtaT01YH0992gNbRAc59Bw"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="flex flex-col items-center text-center">
+<h3 class="font-headline-md text-body-lg text-primary mb-2">Luminous Botanical Face Oil</h3>
+<p class="font-body-md text-secondary mb-6">$128</p>
+<button class="w-full py-4 border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-300">
+          Add to Bag
+        </button>
+</div>
+</div>
+<!-- Product 2: Movement -->
+<div class="group flex flex-col interactive-card animate-float" style="animation-delay: 1s;">
+<div class="relative overflow-hidden bg-surface-container-low mb-6 aspect-[3/4]">
+<img alt="Performance Sculpt Yoga Mat" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1x6m--AVxtDzdE2JwJt_RRIPvV3fIlTRNf1oqJr07PcXvqHwXf0rMlLOF4eNhNmTBRxtutEbNvPIze1cGpGyLfiSDlPjwY6dCVV8XQnxVYSxQ6QQaZzDYjT9tLt_4E6Z1_ODTQAWmexOfcntKqT8WTwWJvM2mPzcudSJYdDki9cOaS2gl6iG_iFXS-Tm3gq3jQsaVHrXbc4CSKbpSiMhW6NBF-Ae36jxWP40eC7aVNPz6GhHmt1QvGg"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="flex flex-col items-center text-center">
+<h3 class="font-headline-md text-body-lg text-primary mb-2">Performance Sculpt Yoga Mat</h3>
+<p class="font-body-md text-secondary mb-6">$145</p>
+<button class="w-full py-4 border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-300">
+          Add to Bag
+        </button>
+</div>
+</div>
+<!-- Product 3: Workspace -->
+<div class="group flex flex-col interactive-card animate-float" style="animation-delay: 2s;">
+<div class="relative overflow-hidden bg-surface-container-low mb-6 aspect-[3/4]">
+<img alt="Vegan Leather Commuter Tote" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnyF2p9_Sr5VrVz_1mWIO0zu7Vi-tEJh-ESzHcamq7_KCPEhkY1AucFWjfdeasPTTy72Aa_oA4txXtKbPKwDWYEJnzZ63BV1fAeQLSiPq3JBcfVwmMrK4SOD-8pgZyRqSZiFCKw6H9Xt-RuNrizoYk_RwefyGbrGL3ARN77s4cXfx_7hLr1nfk07nz1WsNI5Tc_5Rh90I18RXn8GefyOfgO59tu5hd-L6v2nhLRI1pHLe5VkNYAgKvXA"/>
+<div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="flex flex-col items-center text-center">
+<h3 class="font-headline-md text-body-lg text-primary mb-2">Vegan Leather Commuter Tote</h3>
+<p class="font-body-md text-secondary mb-6">$350</p>
+<button class="w-full py-4 border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-300">
+          Add to Bag
+        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Curated Categories (Bento Grid inspiration) -->
+<section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-16 text-center">
+<h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary mb-4">Curated Disciplines</h2>
+<div class="w-12 h-[1px] bg-primary mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter h-auto md:h-[600px]">
+<!-- Category 1 -->
+<a class="group relative overflow-hidden bg-surface-container-low flex items-end md:h-full h-[400px]" href="#">
+<img alt="Beauty &amp; Rituals" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up editorial shot of premium skincare bottles and translucent body oils arranged on a slab of rough-hewn white marble. Soft, diffused lighting highlights the amber liquids and sleek, minimalist packaging. High-contrast, neutral color palette with deep blacks and stark whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJrrZxzjC2tkNtd_6_RQi-EHMvaO7ne42nDMqM2Vl62XP98B0HehJVBczqdj-kIQKymMjOZqdFg9PP5EH0HJFUBGgz-sCEOa0Yuq5qLXktVWEJ7_J9tv6u0CKEoTH6FfMIwyE7PQxYnRq5Q-MnkN9eJHPAVpeIXWYOQTs96fWrj_EG-gNHlCWXet1IUHy_p0Vl9OxfAdIzwoLjsf6zAd47GnQRzD-v5bAdjtaT01YH0992gNbRAc59Bw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="relative z-10 p-8 w-full">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2">Beauty &amp; Rituals</h3>
+<div class="flex items-center gap-2 text-on-primary opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Explore</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</a>
+<!-- Category 2 -->
+<a class="group relative overflow-hidden bg-surface-container-low flex items-end md:h-full h-[400px]" href="#">
+<img alt="Peak Movement" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sleek, high-end home gym environment featuring matte black performance gear and minimalist activewear draped over a polished steel bench. Crisp, architectural lighting creates sharp shadows, emphasizing the technical fabrics and modern lines. Editorial sports luxe aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1x6m--AVxtDzdE2JwJt_RRIPvV3fIlTRNf1oqJr07PcXvqHwXf0rMlLOF4eNhNmTBRxtutEbNvPIze1cGpGyLfiSDlPjwY6dCVV8XQnxVYSxQ6QQaZzDYjT9tLt_4E6Z1_ODTQAWmexOfcntKqT8WTwWJvM2mPzcudSJYdDki9cOaS2gl6iG_iFXS-Tm3gq3jQsaVHrXbc4CSKbpSiMhW6NBF-Ae36jxWP40eC7aVNPz6GhHmt1QvGg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="relative z-10 p-8 w-full">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2">Peak Movement</h3>
+<div class="flex items-center gap-2 text-on-primary opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Explore</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</a>
+<!-- Category 3 -->
+<a class="group relative overflow-hidden bg-surface-container-low flex items-end md:h-full h-[400px]" href="#">
+<img alt="Sanctuary &amp; Workspace" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated home sanctuary workspace. A dark walnut desk is paired with an iconic ergonomic chair under warm, sculptural lighting. A large window suggests a serene outdoor landscape. The styling is impeccably clean, employing generous negative space and a sophisticated palette of charcoals and warm creams." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnyF2p9_Sr5VrVz_1mWIO0zu7Vi-tEJh-ESzHcamq7_KCPEhkY1AucFWjfdeasPTTy72Aa_oA4txXtKbPKwDWYEJnzZ63BV1fAeQLSiPq3JBcfVwmMrK4SOD-8pgZyRqSZiFCKw6H9Xt-RuNrizoYk_RwefyGbrGL3ARN77s4cXfx_7hLr1nfk07nz1WsNI5Tc_5Rh90I18RXn8GefyOfgO59tu5hd-L6v2nhLRI1pHLe5VkNYAgKvXA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="relative z-10 p-8 w-full">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2">Sanctuary &amp; Workspace</h3>
+<div class="flex items-center gap-2 text-on-primary opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Explore</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<section class="py-24 bg-surface-container-low overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="mb-16 text-center">
+<h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary mb-4">Discover More</h2>
+<div class="w-12 h-[1px] bg-primary mx-auto mb-8"></div>
+<p class="font-body-lg text-body-lg text-secondary mb-4">Don't see what you're looking for?</p>
+<a class="font-label-sm text-label-sm text-primary uppercase tracking-widest underline underline-offset-4 hover:text-secondary transition-colors" href="#">Tap here for our full product catalog</a>
+</div>
+<div class="flex overflow-x-auto gap-gutter pb-8 snap-x no-scrollbar">
+<!-- Item 1 -->
+<div class="flex-none w-[280px] md:w-[320px] snap-start group interactive-card animate-float" style="animation-delay: 0.2s;">
+<div class="relative overflow-hidden bg-surface-container-lowest mb-6 aspect-[3/4]">
+<img alt="Aura Rituals Skincare Set" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvs_3jBoKNOygFlSTAH56Zt_9DFBDF3kiLJmDWmzFTXA9U3EWsGDmNDYmjW1023uNr7BbVHaad_h9d87-5d7CCmu7bXiHVBG2ijcyi4DXFQIJBdle3eL-jlvj-lt_4DiFC4ZjXl_s0k3JAcrJMxu72ZhQLLGEANh7Po4G6tz48u7BwtGEF9EB7uOyH8SQo-USkfc0jxaJePcucw-v5al6Z-8y2J6kWaGhZNsJ_hV6EFB7Ncx_ojqy6VA"/>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-body-lg text-primary mb-2">Aura Rituals Skincare Set</h3>
+<p class="font-body-md text-secondary">$210</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex-none w-[280px] md:w-[320px] snap-start group interactive-card animate-float" style="animation-delay: 0.4s;">
+<div class="relative overflow-hidden bg-surface-container-lowest mb-6 aspect-[3/4]">
+<img alt="Santal Noir Aromatherapy Candle" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0BkmuUbe2mR6CurV_Seckne92Twa96NkvlBChoJ5fjGLf05NIsXfUeJ3v-aaEYw3tF2fv1lR-eDF8iXVfvKjhUiHwnUUrV1OINPR0vW99QLsmjdboLPH7elfjEeSaG6hDKHjFHV0dCyTeNZlp01oG-HwqR9mTo5a4teWc3uDCe1gLHnYD3H4SJXzM64Pe6hN7mfILoo47Tt7b8S6PljR_XYV6oHksRab8w1ptF4WQQ7kPZGIwijOqvg"/>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-body-lg text-primary mb-2">Santal Noir Aromatherapy Candle</h3>
+<p class="font-body-md text-secondary">$85</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex-none w-[280px] md:w-[320px] snap-start group interactive-card animate-float" style="animation-delay: 0.6s;">
+<div class="relative overflow-hidden bg-surface-container-lowest mb-6 aspect-[3/4]">
+<img alt="Aura Noise-Canceling Headphones" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACyL5lOL2J9AnXaJ9eaKoaWNlx0XLCkPgXe3vBV4fDztz7NiAmrmPVPhW_6NCoX1bHCmw0mA_15f7HqxaXS5mapqJ84XT6lD7NwA5df6QmkmMl46ybDnw3AAnMxZNtQCbGCV3b-EPHVtJZyRlNW3wnMgQN8B3Hona6p9sAM4D7Hhr_oSIWC36kaqGG4-EK-v4uwAmlif349HZUC2NkUxspH5BhHKnZdXO3OaB4f_zpLD5hu7lvoEl2QA"/>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-body-lg text-primary mb-2">Aura Noise-Canceling Headphones</h3>
+<p class="font-body-md text-secondary">$450</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="flex-none w-[280px] md:w-[320px] snap-start group interactive-card animate-float" style="animation-delay: 0.8s;">
+<div class="relative overflow-hidden bg-surface-container-lowest mb-6 aspect-[3/4]">
+<img alt="Maven Leather Tech Organizer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7z-GW_82yyV3D8fkBW1dbPk4qdusxIdUu1tfSBDc4mzkOaUBe-QdZOXXgOjvBIPUeNY6r8h6rRBSC3TvYhVMrQrOxp61vZdvk_qWD6cNV9ZEfFuFnSDjCoUY2qYD7tIUaDIciI7Q8O5vtjXa_lHLAirzQtpKESdBvTUvHIWtyfAoZ2LYkKSC7yyQsdqKNDkjT5HgfhGPVx-m4__YbnBtVocTIF6NEJsjQDCaPChniHg_i1MwC_ib1Iw"/>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-body-lg text-primary mb-2">Maven Leather Tech Organizer</h3>
+<p class="font-body-md text-secondary">$165</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="flex-none w-[280px] md:w-[320px] snap-start group interactive-card animate-float" style="animation-delay: 1.0s;">
+<div class="relative overflow-hidden bg-surface-container-lowest mb-6 aspect-[3/4]">
+<img alt="Aurora Silk Sleep Set" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbuk4BQocrDE41XmztRA2Nadu-Cr31Beqb49SBNu0W6Czdzk14kx18arX64Fy15r60G05Yy_YJRGqkvUuXrX44ccoKdBjXP6MyrlZUPlPXRQ_g1YJiefwzoZGBJVauAAJpsf4jQKscwhzA0OjCBv4XG3qR8Jk0nbEIZ7so6ciiH49ssmt6wmEa5pH4Ik6VLHGVpfBwVpmcbHSfxlq-ZOETHEjnntGgZV0ThCOd59jwBaT2j5MyXUafkQ"/>
+</div>
+<div class="text-center">
+<h3 class="font-headline-md text-body-lg text-primary mb-2">Aurora Silk Sleep Set</h3>
+<p class="font-body-md text-secondary">$120</p>
+</div>
+</div>
+</div>
+</div>
+</section><footer class="full-width bottom bg-surface-container-lowest dark:bg-surface-container-highest border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-20 max-w-container-max mx-auto">
+<!-- Brand & Copyright -->
+<div class="col-span-1 md:col-span-2 flex flex-col justify-between h-full">
+<div>
+<h2 class="font-display-lg text-headline-md text-primary dark:text-on-primary-fixed mb-4">MISS JANE</h2>
+<p class="font-body-md text-body-md text-secondary dark:text-on-secondary-container max-w-sm mb-8">Elevating everyday routines into exquisite rituals through curated design and exceptional quality.</p>
+</div>
+<div class="font-label-sm text-label-sm text-secondary dark:text-on-secondary-container uppercase tracking-widest">
+                    © 2024 MISS JANE. ALL RIGHTS RESERVED.
+                </div>
+</div>
+<!-- Links Column 1 -->
+<div class="col-span-1 flex flex-col gap-4">
+<h3 class="font-label-sm text-label-sm text-primary dark:text-on-primary-fixed uppercase tracking-widest mb-2">Client Services</h3>
+<a class="font-body-md text-body-md text-secondary dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all focus:ring-1 focus:ring-outline" href="#">Concierge Care</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all focus:ring-1 focus:ring-outline" href="#">Shipping &amp; Returns</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all focus:ring-1 focus:ring-outline" href="#">Privacy Policy</a>
+</div>
+<!-- Links Column 2 -->
+<div class="col-span-1 flex flex-col gap-4">
+<h3 class="font-label-sm text-label-sm text-primary dark:text-on-primary-fixed uppercase tracking-widest mb-2">The World of Miss Jane</h3>
+<a class="font-body-md text-body-md font-bold text-primary dark:text-on-primary-fixed hover:underline decoration-1 underline-offset-4 transition-all focus:ring-1 focus:ring-outline" href="#">Private Circle VIP</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all focus:ring-1 focus:ring-outline" href="#">Sustainability</a>
+<a class="font-body-md text-body-md text-secondary dark:text-on-secondary-container hover:underline decoration-1 underline-offset-4 transition-all focus:ring-1 focus:ring-outline" href="#">Journal</a>
+</div>
+</div>
+</footer>
+<script>
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const rect = heroSection.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within the element.
+            const y = e.clientY - rect.top;  // y position within the element.
+            
+            heroSection.style.setProperty('--mouse-x', `${x}px`);
+            heroSection.style.setProperty('--mouse-y', `${y}px`);
+        });
+    }
+</script>
+</body></html>
